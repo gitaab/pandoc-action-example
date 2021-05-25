@@ -16,6 +16,9 @@ jobs:
       - uses: docker://pandoc/latex:2.9
         with:
           args: --output=output/result.pdf ${{ env.FILELIST }}
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: auto-commit pdf
       - uses: actions/upload-artifact@master
         with:
           name: output
